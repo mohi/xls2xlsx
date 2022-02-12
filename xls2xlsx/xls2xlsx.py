@@ -289,9 +289,10 @@ class XLS2XLSX:
                         hyperlink = sheet.hyperlink_map[tup].url_or_path
                         ws.cell(rw, cc).hyperlink = hyperlink
                         #ws.cell(rw, cc).style = 'Hyperlink'
-                    if tup in sheet.cell_note_map:
-                        comment = sheet.cell_note_map[tup]
-                        ws.cell(rw, cc).comment = Comment(comment.text, comment.author)
+#                     #comments failing in openpyxl save
+#                     if tup in sheet.cell_note_map:
+#                         comment = sheet.cell_note_map[tup]
+#                         ws.cell(rw, cc).comment = Comment(comment.text, comment.author)
                     image = False       # FIXME (after fixing xlrd)
                     if image:
                         image.anchor = f'{cl}{rw}'
